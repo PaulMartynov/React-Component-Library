@@ -1,10 +1,6 @@
 import React from "react";
-import { Header } from "./HeaderComponent/Header";
+import { ComponentViewer } from "./ComponentViewer/ComponentViewer";
 
-export default function App() {
-  return (
-    <div className="App">
-      <Header />
-    </div>
-  );
+export default function App(): JSX.Element {
+  return <ComponentViewer />;
 }
