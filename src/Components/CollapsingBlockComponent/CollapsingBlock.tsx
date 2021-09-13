@@ -23,7 +23,7 @@ export class CollapsingBlock extends React.Component<
             {hidden ? "Скрыть" : "Показать"}
           </button>
         </p>
-        {hidden && <p>{this.props.innerTxt}</p>}
+        {hidden && <p>{this.props.children}</p>}
       </>
     );
   }

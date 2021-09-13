@@ -19,9 +19,14 @@ interface ImageProps {
 
 interface CollapsingProps {
   headerTxt: string;
-  innerTxt: string;
+  children: JSX.Element | string;
 }
 
 interface CollapsingState {
   isHidden: boolean;
+}
+
+interface ColumnProps {
+  count: number;
+  children: JSX.Element | string;
 }
