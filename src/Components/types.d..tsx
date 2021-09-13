@@ -16,3 +16,12 @@ interface ImageProps {
   source: string;
   floatStyle: string;
 }
+
+interface CollapsingProps {
+  headerTxt: string;
+  innerTxt: string;
+}
+
+interface CollapsingState {
+  isHidden: boolean;
+}

@@ -3,6 +3,7 @@ import { Header } from "../HeaderComponent/Header";
 import { Paragraph } from "../PargraphComponent/Pargraph";
 import { SpaceBlock } from "../SpaceBlockComponent/SpaceBlock";
 import { Image } from "../ImageComponent/Image";
+import { CollapsingBlock } from "../CollapsingBlockComponent/CollapsingBlock";
 
 export class ComponentViewer extends React.Component<
   Record<string, unknown>,
@@ -78,6 +79,13 @@ export class ComponentViewer extends React.Component<
           />
         );
         break;
+      case "collapsingblock":
+        param = prompt("Введите текст заголовка");
+        param2 = prompt("Введите текст содержимого");
+        elements.push(
+          <CollapsingBlock headerTxt={param ?? ""} innerTxt={param2 ?? ""} />
+        );
+        break;
       default:
         alert(`Данный компонент недоступен`);
     }
@@ -88,7 +96,7 @@ export class ComponentViewer extends React.Component<
     const elements: React.ReactElement[] = [];
     do {
       componentName = prompt(
-        "Введите название компонента или пустую строку для завершения, доступные компоненты: Header, Paragraph, SpaceBlock, Image"
+        "Введите название компонента или пустую строку для завершения, доступные компоненты: Header, Paragraph, SpaceBlock, Image, CollapsingBlock"
       )
         ?.trim()
         .toLowerCase();
