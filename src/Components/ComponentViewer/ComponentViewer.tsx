@@ -1,5 +1,6 @@
 import React from "react";
 import { Header } from "../HeaderComponent/Header";
+import { Paragraph } from "../PargraphComponent/Pargraph";
 
 export class ComponentViewer extends React.Component<
   Record<string, unknown>,
@@ -11,6 +12,7 @@ export class ComponentViewer extends React.Component<
 
   findElement = (name: string, elements: React.ReactElement[]): void => {
     let params: string[] | undefined;
+    let styles: string[];
     switch (name) {
       case "header":
         params = prompt(
@@ -29,6 +31,29 @@ export class ComponentViewer extends React.Component<
         }
         alert("Введены недопустимые параметры");
         break;
+      case "paragraph":
+        params = prompt(
+          "Введите текст и стиль: bold(жирный), italic(курсив)"
+        )?.split(" ");
+        if (params) {
+          styles = [];
+          params?.forEach((item) => {
+            if (
+              (item === "bold" || item === "жирный") &&
+              !styles.includes("bold")
+            ) {
+              styles.push("bold");
+            }
+            if (
+              (item === "italic" || item === "курсив") &&
+              !styles.includes("italic")
+            ) {
+              styles.push("italic");
+            }
+          });
+          elements.push(<Paragraph styles={styles} children={params[0]} />);
+        }
+        break;
       default:
         alert(`Данный компонент недоступен`);
     }
@@ -39,7 +64,7 @@ export class ComponentViewer extends React.Component<
     const elements: React.ReactElement[] = [];
     do {
       componentName = prompt(
-        "Введите название компонента или пустую строку для завершения, доступные компоненты: Header"
+        "Введите название компонента или пустую строку для завершения, доступные компоненты: Header, Paragraph"
       )
         ?.trim()
         .toLowerCase();
