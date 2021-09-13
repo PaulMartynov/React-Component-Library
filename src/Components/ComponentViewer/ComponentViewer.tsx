@@ -1,6 +1,6 @@
 import React from "react";
 import { Header } from "../HeaderComponent/Header";
-import { Paragraph } from "../PargraphComponent/Pargraph";
+import { Paragraph } from "../PargraphComponent/Paragraph";
 import { SpaceBlock } from "../SpaceBlockComponent/SpaceBlock";
 import { Image } from "../ImageComponent/Image";
 import { CollapsingBlock } from "../CollapsingBlockComponent/CollapsingBlock";
