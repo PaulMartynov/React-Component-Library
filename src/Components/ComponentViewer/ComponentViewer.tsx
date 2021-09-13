@@ -2,6 +2,7 @@ import React from "react";
 import { Header } from "../HeaderComponent/Header";
 import { Paragraph } from "../PargraphComponent/Pargraph";
 import { SpaceBlock } from "../SpaceBlockComponent/SpaceBlock";
+import { Image } from "../ImageComponent/Image";
 
 export class ComponentViewer extends React.Component<
   Record<string, unknown>,
@@ -14,6 +15,7 @@ export class ComponentViewer extends React.Component<
   findElement = (name: string, elements: React.ReactElement[]): void => {
     let params: string[] | undefined;
     let styles: string[];
+    let param: string | null;
     switch (name) {
       case "header":
         params = prompt(
@@ -56,12 +58,20 @@ export class ComponentViewer extends React.Component<
         }
         break;
       case "spaceblock":
-        params = prompt("Введите высоту блока:")?.split(" ");
-        if (params && !Number.isNaN(Number(params[0]))) {
-          elements.push(<SpaceBlock blockHeight={Number(params[0])} />);
+        param = prompt("Введите высоту блока:");
+        if (param && !Number.isNaN(Number(param))) {
+          elements.push(<SpaceBlock blockHeight={Number(param)} />);
           break;
         }
         alert("Введены недопустимые параметры");
+        break;
+      case "image":
+        param = prompt("(Опционально) Введите адрес картинки");
+        if (param || param === "") {
+          elements.push(<Image source={param} />);
+          break;
+        }
+        alert("Введено недопустимое параметры");
         break;
       default:
         alert(`Данный компонент недоступен`);
@@ -73,7 +83,7 @@ export class ComponentViewer extends React.Component<
     const elements: React.ReactElement[] = [];
     do {
       componentName = prompt(
-        "Введите название компонента или пустую строку для завершения, доступные компоненты: Header, Paragraph, SpaceBlock"
+        "Введите название компонента или пустую строку для завершения, доступные компоненты: Header, Paragraph, SpaceBlock, Image"
       )
         ?.trim()
         .toLowerCase();

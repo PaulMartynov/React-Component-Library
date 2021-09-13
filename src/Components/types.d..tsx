@@ -11,3 +11,7 @@ interface ParagraphProps {
 interface SpaceBlockProps {
   blockHeight: number;
 }
+
+interface ImageProps {
+  source: string;
+}
