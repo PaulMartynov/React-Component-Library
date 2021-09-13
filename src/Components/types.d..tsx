@@ -14,4 +14,5 @@ interface SpaceBlockProps {
 
 interface ImageProps {
   source: string;
+  floatStyle: string;
 }

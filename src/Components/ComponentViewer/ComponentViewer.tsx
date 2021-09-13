@@ -16,30 +16,31 @@ export class ComponentViewer extends React.Component<
     let params: string[] | undefined;
     let styles: string[];
     let param: string | null;
+    let param2: string | null;
     switch (name) {
       case "header":
-        params = prompt(
-          "Введите уровень (1 - 6) и текст заголовка через пробел"
-        )?.split(" ");
+        param = prompt("Введите текст");
+        param2 = prompt("Введите уровень заголовка (1 - 6)");
         if (
-          params &&
-          !Number.isNaN(Number(params[0])) &&
-          Number(params[0]) >= 1 &&
-          Number(params[0]) <= 6
+          param2 &&
+          !Number.isNaN(Number(param2)) &&
+          Number(param2) >= 1 &&
+          Number(param2) <= 6
         ) {
           elements.push(
-            <Header level={Number(params[0])} children={params[1]} />
+            <Header level={Number(param2)} children={param ?? ""} />
           );
           break;
         }
         alert("Введены недопустимые параметры");
         break;
       case "paragraph":
-        params = prompt(
-          "Введите текст и стиль: bold(жирный), italic(курсив)"
-        )?.split(" ");
+        param = prompt("Введите текст");
+        params = prompt("Выбирите стиль: bold(жирный), italic(курсив)")?.split(
+          " "
+        );
+        styles = [];
         if (params) {
-          styles = [];
           params?.forEach((item) => {
             if (
               (item === "bold" || item === "жирный") &&
@@ -54,7 +55,7 @@ export class ComponentViewer extends React.Component<
               styles.push("italic");
             }
           });
-          elements.push(<Paragraph styles={styles} children={params[0]} />);
+          elements.push(<Paragraph styles={styles} children={param ?? ""} />);
         }
         break;
       case "spaceblock":
@@ -67,11 +68,15 @@ export class ComponentViewer extends React.Component<
         break;
       case "image":
         param = prompt("(Опционально) Введите адрес картинки");
-        if (param || param === "") {
-          elements.push(<Image source={param} />);
-          break;
-        }
-        alert("Введено недопустимое параметры");
+        param2 = prompt(
+          "(Опционально) Выберите вариант обтекания ( left | right )"
+        );
+        elements.push(
+          <Image
+            source={param ?? ""}
+            floatStyle={param2 ? param2.toLowerCase() : ""}
+          />
+        );
         break;
       default:
         alert(`Данный компонент недоступен`);
