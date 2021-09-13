@@ -11,7 +11,8 @@
     "make-badges": "istanbul-badges-readme",
     "prepare": "husky install",
     "build": "webpack --mode=production",
-    "start": "webpack serve --mode=development"
+    "start": "webpack serve --mode=development",
+    "storybook": "start-storybook -p 6006"
   },
   "repository": {
     "type": "git",
