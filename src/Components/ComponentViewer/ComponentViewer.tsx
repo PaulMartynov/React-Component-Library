@@ -1,6 +1,7 @@
 import React from "react";
 import { Header } from "../HeaderComponent/Header";
 import { Paragraph } from "../PargraphComponent/Pargraph";
+import { SpaceBlock } from "../SpaceBlockComponent/SpaceBlock";
 
 export class ComponentViewer extends React.Component<
   Record<string, unknown>,
@@ -54,6 +55,14 @@ export class ComponentViewer extends React.Component<
           elements.push(<Paragraph styles={styles} children={params[0]} />);
         }
         break;
+      case "spaceblock":
+        params = prompt("Введите высоту блока:")?.split(" ");
+        if (params && !Number.isNaN(Number(params[0]))) {
+          elements.push(<SpaceBlock blockHeight={Number(params[0])} />);
+          break;
+        }
+        alert("Введены недопустимые параметры");
+        break;
       default:
         alert(`Данный компонент недоступен`);
     }
@@ -64,7 +73,7 @@ export class ComponentViewer extends React.Component<
     const elements: React.ReactElement[] = [];
     do {
       componentName = prompt(
-        "Введите название компонента или пустую строку для завершения, доступные компоненты: Header, Paragraph"
+        "Введите название компонента или пустую строку для завершения, доступные компоненты: Header, Paragraph, SpaceBlock"
       )
         ?.trim()
         .toLowerCase();
