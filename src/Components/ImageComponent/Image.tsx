@@ -13,5 +13,9 @@ export const Image: React.FC<ImageProps> = ({
   if (source && source !== "") {
     imageSrc = source;
   }
-  return React.createElement("img", { src: imageSrc, style: { float: style } });
+  return React.createElement("img", {
+    "data-testid": "image-test",
+    src: imageSrc,
+    style: { float: style },
+  });
 };
