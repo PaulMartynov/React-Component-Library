@@ -12,7 +12,12 @@
     "prepare": "husky install",
     "build": "webpack --mode=production",
     "start": "webpack serve --mode=development",
-    "storybook": "start-storybook -p 6006"
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook -o ./storybook-static --quiet",
+    "deploy-storybook": "storybook-to-ghpages",
+    "loki:test": "loki test",
+    "loki:update": "loki update",
+    "loki:ci": "build-storybook -o ./storybook-static --quiet && loki --requireReference --reactUri file:./storybook-static"
   },
   "repository": {
     "type": "git",
@@ -78,5 +83,20 @@
   "lint-staged": {
     "*.{js,ts,tsx}": "eslint --cache --fix --ext .js,.ts",
     "*.{js,ts,tsx,css,md,yml,html,json}": "prettier --write"
+  },
+  "loki": {
+    "configurations": {
+      "chrome.laptop": {
+        "target": "chrome.docker",
+        "width": 1366,
+        "height": 768,
+        "deviceScaleFactor": 1,
+        "mobile": false
+      },
+      "chrome.iphone7": {
+        "target": "chrome.docker",
+        "preset": "iPhone 7"
+      }
+    }
   }
 }

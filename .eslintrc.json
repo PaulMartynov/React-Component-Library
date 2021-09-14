@@ -16,7 +16,7 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "ignorePatterns": ["dist/**/*.js"],
+  "ignorePatterns": ["dist/**/*.js", "storybook-static/**/*.js"],
   "rules": {
     "no-param-reassign": [2, { "props": false }],
     "import/no-unresolved": "off", // https://github.com/typescript-eslint/typescript-eslint/issues/1624
