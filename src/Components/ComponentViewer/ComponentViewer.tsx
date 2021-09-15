@@ -38,9 +38,9 @@ export class ComponentViewer extends React.Component<
         break;
       case "paragraph":
         param = prompt("Введите текст");
-        params = prompt("Выбирите стиль: bold(жирный), italic(курсив)")?.split(
-          " "
-        );
+        params = prompt(
+          "Выберите стиль (можно несколько через пробел): bold(жирный), italic(курсив)"
+        )?.split(" ");
         styles = [];
         if (params) {
           params?.forEach((item) => {
@@ -122,7 +122,9 @@ export class ComponentViewer extends React.Component<
     this.requestUserForRenderElements();
   }
 
-  render(): JSX.Element {
-    return <>{this.state.elements}</>;
+  render(): JSX.Element[] {
+    return this.state.elements.map((element: JSX.Element, index) => (
+      <React.Fragment key={`el-${index}`}>{element}</React.Fragment>
+    ));
   }
 }

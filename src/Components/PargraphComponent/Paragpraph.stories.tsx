@@ -10,7 +10,7 @@ export default {
 } as Meta;
 const Template: Story<ParagraphProps> = (args) => <Paragraph {...args} />;
 
-export const Default = Template.bind({});
+export const Default = Template;
 export const Bold = Template.bind({});
 export const Cursive = Template.bind({});
 export const BoldCursive = Template.bind({});

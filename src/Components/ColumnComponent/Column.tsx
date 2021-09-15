@@ -6,7 +6,7 @@ export const Column: React.FC<ColumnProps> = ({ count, children }) => {
   const colCount = count > 0 ? count : 1;
   for (let i = 0; i < colCount; i += 1) {
     elements.push(
-      <div className={"col"}>
+      <div className={"col"} key={`column-${i}`}>
         <p>{children}</p>
       </div>
     );

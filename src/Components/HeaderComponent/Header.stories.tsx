@@ -9,7 +9,7 @@ export default {
   title: "Components/Header",
 } as Meta;
 const Template: Story<HeaderProps> = (args) => <Header {...args} />;
-export const H1 = Template.bind({});
+export const H1 = Template;
 export const H2 = Template.bind({});
 export const H3 = Template.bind({});
 export const H4 = Template.bind({});
