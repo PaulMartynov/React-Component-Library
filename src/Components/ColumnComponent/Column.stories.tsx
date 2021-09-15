@@ -9,7 +9,7 @@ export default {
 };
 const Template: Story<ColumnProps> = (args) => <Column {...args} />;
 
-export const columnComp5 = Template.bind({});
+export const columnComp5 = Template;
 export const columnComp9 = Template.bind({});
 
 columnComp5.args = {

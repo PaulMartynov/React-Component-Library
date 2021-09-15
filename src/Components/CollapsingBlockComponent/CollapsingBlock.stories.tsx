@@ -7,13 +7,13 @@ export default {
   component: CollapsingBlock,
   title: "Components/CollapsingBlock",
 };
-// @ts-ignore
-const Template: Story<ColumnProps> = (args) => <CollapsingBlock {...args} />;
+const Template: Story<CollapsingProps> = (args) => (
+  <CollapsingBlock {...args} />
+);
 
-export const collapseBlock = Template.bind({});
+export const collapseBlock = Template;
 
 collapseBlock.args = {
-  // @ts-ignore
   headerTxt: "Header text",
   children:
     "Some text, some text, some text, some text, some text, some text, some text, some text, some text, some text, " +
