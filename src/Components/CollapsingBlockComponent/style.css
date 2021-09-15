@@ -1,0 +1,10 @@
+.blockHeader {
+  font-weight: 600;
+}
+.blockHeader button {
+  margin-left: 5px;
+}
+.blockContent {
+  border: solid 1px;
+  padding: 5px;
+}
